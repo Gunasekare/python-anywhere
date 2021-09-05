@@ -1,2 +1,2 @@
-*.py
+manage.py
 *.sqlite3
