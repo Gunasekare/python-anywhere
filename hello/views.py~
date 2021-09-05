@@ -1,0 +1,11 @@
+from django.shortcuts import render
+
+# Create your views here.
+from django.http import HttpResponse
+
+def index(request):
+    view_count = request.session.get('view-count', 0) + 1
+    request.session['view-count'] = view_count
+    if view_count > 4:
+        del(request.session['view-count'])
+    return HttpResponse("view count=" + str(view_count))
